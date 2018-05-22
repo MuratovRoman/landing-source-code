@@ -1,0 +1,131 @@
+.header
+	position: absolute
+	width: 100%
+	left: 0
+	top: 0
+	padding: 23px 0
+	z-index: 100
+	&-body
+		display: flex
+		align-items: center 
+		+r(sm)
+			flex-wrap: wrap
+		&__logo
+			.logo
+				display: block 
+				img
+		&__search
+			margin-right: auto
+			position: relative
+			margin-left: 27px
+			font-weight: 300 
+			&:after
+			 	position: absolute
+			 	content: ""
+			 	height: 100%
+			 	width: 1px
+			 	left: 0
+			 	top: 0
+			 	background-color: #546365 
+			.search
+				background: none
+				border: none
+				padding: 5px 15px
+				+rfs(16px)
+				color: #546365 
+				transition: all .4s
+		&__nav
+			+r(sm)
+				width: 100%
+				overflow: hidden
+				transition: all .5s
+				max-height: 0
+
+.header-nav
+	display: flex 
+	align-items: center 
+	justify-content: space-between  
+	+r(sm)
+		flex-direction: column
+		height: 80vh
+		padding: 10vh 0
+	&__item
+		a
+			+rfs(13px)
+			letter-spacing: 0.7px
+			color: #FFF  
+			text-decoration: none
+			padding: 5px 10px 
+			+r(sm)
+				color: #0eb493
+				+rfs(40px) 
+
+
+.header-burger
+	background: none
+	border: none
+	display: none
+	flex-direction: column
+	-webkit-align-items: center
+	align-items: center
+	-webkit-justify-content: space-between
+	justify-content: space-between
+	width: 30px
+	height: 18px
+	position: relative
+	transition: all .4s
+	+r(sm)
+		display: flex
+	
+	&__line
+		display: inline-block
+		width: 30px
+		height: 2px
+		background: #FFF
+		border-radius: 3px 
+		
+
+.mask
+	display: inline-block
+	position: fixed
+	width: 100%
+	height: 100%
+	top: 0
+	left: 0
+	background: #FFF
+	z-index: 1 
+	transition: all .4s
+	opacity: 0
+	transform: translateY(-100%)
+	&.is-active
+		opacity: 0.95
+		transform: translateY(0)
+		
+
+//is-active MENU
+.header-body.is-active
+	.header-body__search
+		input
+			+r(sm)
+				color: #0eb493
+				border: 1px solid #0eb493
+				border-radius: 3px
+		&:after
+			+r(sm)
+				display: none
+	.header-burger
+		.header-burger__line
+			background: #0eb493
+			transition: all .4s
+			&:nth-of-type(2)
+				background: #FFF
+			&:first-child
+				transform: rotate(45deg) translateY(10px)
+			&:last-child
+				transform: rotate(-45deg) translateY(-10px)
+
+	.header-body__nav
+		+r(sm)
+			max-height: 100vh
+			transition: all .2s
+			
